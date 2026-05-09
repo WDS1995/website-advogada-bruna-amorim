@@ -11,8 +11,18 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!header || !hamburger) return;
 
     // Toggle menu
-    function openMenu()  { header.classList.add('menu-open'); document.body.style.overflow = 'hidden'; }
-    function closeMenu() { header.classList.remove('menu-open'); document.body.style.overflow = ''; }
+    function openMenu() {
+        header.classList.add('menu-open');
+        document.body.style.overflow = 'hidden';
+        hamburger.setAttribute('aria-expanded', 'true');
+        hamburger.setAttribute('aria-label', 'Fechar menu');
+    }
+    function closeMenu() {
+        header.classList.remove('menu-open');
+        document.body.style.overflow = '';
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-label', 'Abrir menu');
+    }
 
     hamburger.addEventListener('click', function () {
         header.classList.contains('menu-open') ? closeMenu() : openMenu();

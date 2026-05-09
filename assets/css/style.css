@@ -107,18 +107,22 @@ header.scrolled {
 }
 .nav-logo .logo-name {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.35rem;
+    font-size: clamp(0.95rem, 2vw, 1.2rem);
     font-weight: 700;
     color: var(--accent-primary);
     letter-spacing: 0.03em;
+    line-height: 1.15;
 }
 .nav-logo .logo-sub {
     font-family: 'Inter', sans-serif;
-    font-size: 0.62rem;
+    font-size: 0.58rem;
     font-weight: 500;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--text-muted);
+}
+@media (max-width: 480px) {
+    .nav-logo .logo-sub { display: none; }
 }
 .nav-logo:hover .logo-name { color: var(--accent-light); }
 
@@ -250,9 +254,20 @@ footer {
     gap: 3rem;
     margin-bottom: 3rem;
 }
+.footer-logo-img {
+    height: 64px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 0.6rem;
+    filter: brightness(0.95) saturate(0.85);
+}
+@media (max-width: 640px) {
+    .footer-logo-img { height: 52px; }
+}
+
 .footer-brand .logo-name {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: 700;
     color: var(--accent-primary);
 }

@@ -1,0 +1,219 @@
+/* ============================================
+   TEMA — ADVOGADA BRUNA AMORIM
+   Paleta: Bordô Profundo + Cobre Elegante
+   ============================================ */
+
+:root {
+    /* ── Cores Primárias (Fundo Bordô) ── */
+    --bg-primary:    #3B0A0A;   /* bordô profundo */
+    --bg-secondary:  #5A0F0F;   /* bordô variação */
+
+    /* ── Cores de Acento (Cobre / Rosé Gold) ── */
+    --accent-primary: #B76E5D;  /* cobre elegante — logo, títulos */
+    --accent-light:   #D19A8B;  /* rosé gold — hover, detalhes */
+
+    /* ── Sombras e Texturas ── */
+    --shadow-deep: #2A0707;     /* quase preto avermelhado */
+    --red-vivid:   #7A1C1C;     /* vermelho escuro mais vivo */
+
+    /* ── Superfícies ── */
+    --surface-01: rgba(90, 15, 15, 0.60);   /* cards sobre fundo escuro */
+    --surface-02: rgba(42,  7,  7, 0.80);   /* overlays */
+    --surface-03: #4A0E0E;                  /* seção alternada */
+
+    /* ── Texto ── */
+    --text-main:   #F5EBE0;    /* creme claro — texto principal */
+    --text-muted:  #C9A99A;    /* rosé claro — texto secundário */
+    --text-accent: #B76E5D;    /* cobre — destaques inline */
+
+    /* ── Bordas ── */
+    --border-subtle: rgba(183, 110, 93, 0.25);
+    --border-strong: rgba(183, 110, 93, 0.60);
+
+    /* ── Gradientes ── */
+    --gradient-hero:    linear-gradient(160deg, #2A0707 0%, #5A0F0F 100%);
+    --gradient-accent:  linear-gradient(135deg, #B76E5D 0%, #D19A8B 100%);
+    --gradient-overlay: linear-gradient(to bottom, rgba(42,7,7,0.55) 0%, rgba(42,7,7,0.90) 100%);
+
+    /* ── Sombras ── */
+    --shadow-sm:  0 2px  8px rgba(42, 7, 7, 0.40);
+    --shadow-md:  0 6px 20px rgba(42, 7, 7, 0.55);
+    --shadow-lg:  0 12px 40px rgba(42, 7, 7, 0.70);
+    --shadow-gold: 0 4px 24px rgba(183, 110, 93, 0.25);
+
+    /* ── Transições ── */
+    --transition-fast:   all 0.2s ease;
+    --transition-normal: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow:   all 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* ── Bordas Arredondadas ── */
+    --radius-sm:  6px;
+    --radius-md:  12px;
+    --radius-lg:  20px;
+    --radius-full: 9999px;
+
+    /* ── Espaçamentos ── */
+    --section-py: clamp(4rem, 10vh, 7rem);
+    --container-px: clamp(1rem, 5vw, 2rem);
+    --container-max: 1200px;
+}
+
+/* ── Tipografia ── */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap');
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', 'Georgia', serif;
+    font-weight: 600;
+    color: var(--accent-primary);
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+}
+
+h1 { font-size: clamp(2.4rem, 6vw, 4rem); }
+h2 { font-size: clamp(1.9rem, 4.5vw, 3rem); }
+h3 { font-size: clamp(1.5rem, 3vw, 2.1rem); }
+h4 { font-size: clamp(1.2rem, 2vw, 1.6rem); }
+h5 { font-size: clamp(1rem, 1.5vw, 1.2rem); }
+
+p {
+    font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+    color: var(--text-muted);
+}
+
+a { color: var(--accent-primary); text-decoration: none; transition: var(--transition-fast); }
+a:hover { color: var(--accent-light); }
+
+/* ── Utilitários de cor ── */
+.text-accent   { color: var(--accent-primary); }
+.text-main     { color: var(--text-main); }
+.text-muted    { color: var(--text-muted); }
+.bg-primary    { background-color: var(--bg-primary); }
+.bg-secondary  { background-color: var(--bg-secondary); }
+.bg-surface    { background-color: var(--surface-03); }
+
+.gradient-text {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ── Botões ── */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 2rem;
+    border-radius: var(--radius-full);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.92rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    transition: var(--transition-normal);
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: var(--gradient-accent);
+    color: #fff;
+    box-shadow: var(--shadow-gold);
+}
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(183, 110, 93, 0.40);
+    color: #fff;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--accent-primary);
+    border: 2px solid var(--border-strong);
+}
+.btn-outline:hover {
+    background: var(--surface-01);
+    color: var(--accent-light);
+    border-color: var(--accent-light);
+    transform: translateY(-2px);
+}
+
+.btn-whatsapp {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.30);
+}
+.btn-whatsapp:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.45);
+    color: #fff;
+}
+
+/* ── Divisor decorativo ── */
+.divider {
+    width: 60px;
+    height: 3px;
+    background: var(--gradient-accent);
+    border-radius: 2px;
+    margin: 1rem auto;
+}
+.divider-left { margin-left: 0; }
+
+/* ── Seção título ── */
+.section-label {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-primary);
+    margin-bottom: 0.75rem;
+}
+
+/* ── Animações ── */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-8px); }
+}
+@keyframes shimmer {
+    0%   { background-position: -200% 0; }
+    100% { background-position:  200% 0; }
+}
+
+.animate-fade-up  { animation: fadeInUp  0.7s ease both; }
+.animate-fade     { animation: fadeIn    0.7s ease both; }
+.animate-float    { animation: float    3s ease-in-out infinite; }
+
+/* Intersection Observer — reveal on scroll */
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }

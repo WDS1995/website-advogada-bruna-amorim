@@ -1,0 +1,149 @@
+/* ============================================
+   HERO — seção principal da Home
+   ============================================ */
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Imagem de fundo */
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+.hero-bg img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: brightness(0.45) saturate(0.7);
+}
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-overlay);
+    z-index: 1;
+}
+
+/* Linha decorativa vertical */
+.hero::before {
+    content: '';
+    position: absolute;
+    left: var(--container-px);
+    top: 25%; bottom: 25%;
+    width: 3px;
+    background: var(--gradient-accent);
+    border-radius: 2px;
+    z-index: 2;
+    opacity: 0.6;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-px);
+    padding-top: 100px;
+    padding-left: clamp(2rem, 6vw, 5rem);
+    width: 100%;
+}
+
+.hero-label {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent-primary);
+    margin-bottom: 1.2rem;
+    padding: 0.4rem 1rem;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-full);
+    background: var(--surface-01);
+}
+
+.hero h1 {
+    max-width: 680px;
+    margin-bottom: 1.25rem;
+    color: var(--text-main);
+    text-shadow: 0 2px 20px rgba(42,7,7,0.5);
+}
+.hero h1 em {
+    font-style: italic;
+    color: var(--accent-primary);
+}
+
+.hero-sub {
+    max-width: 520px;
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* Scroll indicator */
+.hero-scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--text-muted);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    animation: float 2.5s ease-in-out infinite;
+}
+.hero-scroll i { font-size: 1.2rem; color: var(--accent-primary); }
+
+/* Badge credencial */
+.hero-badge {
+    position: absolute;
+    bottom: 3rem;
+    right: clamp(2rem, 6vw, 5rem);
+    z-index: 3;
+    background: var(--surface-01);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 0.9rem 1.2rem;
+    backdrop-filter: blur(8px);
+    text-align: center;
+    max-width: 180px;
+}
+.hero-badge .badge-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+    line-height: 1;
+}
+.hero-badge .badge-label {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+    margin-top: 0.2rem;
+}
+
+@media (max-width: 768px) {
+    .hero::before { display: none; }
+    .hero-content { padding-left: var(--container-px); padding-top: 7rem; }
+    .hero-badge { display: none; }
+    .hero-scroll { bottom: 1.2rem; }
+}

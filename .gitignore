@@ -1,0 +1,13 @@
+# Ignorar arquivos do sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+*.swp
+*.swo
+
+# Temporários
+*.tmp
+*.bak

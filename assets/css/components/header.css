@@ -1,0 +1,10 @@
+/* ============================================
+   HEADER — sticky + scroll effect
+   ============================================ */
+
+/* Already defined in style.css — this file
+   holds only extra states and decorative details */
+
+.nav-logo-icon {
+    display: none; /* placeholder for SVG logo */
+}
